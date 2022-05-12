@@ -14,3 +14,17 @@ class Place(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Photo(models.Model):
+    number = models.IntegerField('Номер фотографии')
+    image = models.ImageField('Изображение')
+    place = models.ForeignKey(
+        Place,
+        verbose_name='Место',
+        related_name='photos',
+        on_delete=models.CASCADE,
+    )
+
+    def __str__(self):
+        return f'{self.place} - {self.number}'
