@@ -18,7 +18,7 @@ class Place(models.Model):
 
 class Photo(models.Model):
     number = models.IntegerField('Номер фотографии')
-    image = models.ImageField('Изображение')
+    image = models.ImageField('Изображение', upload_to='photos/')
     place = models.ForeignKey(
         Place,
         verbose_name='Место',
