@@ -5,7 +5,7 @@ from django.shortcuts import get_object_or_404
 
 def place_details_json(request, place_id):
     place = get_object_or_404(Place, pk=place_id)
-    place_photos = place.photos.all().order_by('number')
+    place_photos = place.photos.all().order_by('position')
     place_photos_urls = [photo.image.url for photo in place_photos]
     place_details = {
         'title': place.title,

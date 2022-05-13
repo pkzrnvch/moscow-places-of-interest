@@ -17,7 +17,7 @@ class Place(models.Model):
 
 
 class Photo(models.Model):
-    number = models.IntegerField('Номер фотографии')
+    position = models.IntegerField('Позиция')
     image = models.ImageField('Изображение', upload_to='photos/')
     place = models.ForeignKey(
         Place,
@@ -27,4 +27,4 @@ class Photo(models.Model):
     )
 
     def __str__(self):
-        return f'{self.place} - {self.number}'
+        return f'{self.place} - {self.position}'
