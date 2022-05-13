@@ -1,6 +1,7 @@
 from django.urls import path
-from . import views
+from places import views
 
 
 urlpatterns = [
+    path('<int:place_id>', views.place_detail_json)
 ]
