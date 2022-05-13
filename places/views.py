@@ -3,7 +3,7 @@ from places.models import Place, Photo
 from django.shortcuts import get_object_or_404
 
 
-def place_detail_json(request, place_id):
+def place_details_json(request, place_id):
     place = get_object_or_404(Place, pk=place_id)
     place_photos = [photo.image.url for photo in place.photos.all()]
     place_details = {
