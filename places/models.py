@@ -28,6 +28,8 @@ class Photo(models.Model):
 
     class Meta:
         ordering = ['position']
+        verbose_name = 'фотогафия'
+        verbose_name_plural = 'фотографии'
 
     def __str__(self):
         return f'{self.place} - {self.position}'

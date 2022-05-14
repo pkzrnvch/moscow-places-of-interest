@@ -1,9 +1,10 @@
-from django.contrib import admin
-from django.utils.html import format_html
 from adminsortable2.admin import SortableInlineAdminMixin, SortableAdminBase
-from places.models import Place, Photo
+from django.contrib import admin
 from django.db import models
+from django.utils.html import format_html
 from tinymce.widgets import TinyMCE
+
+from places.models import Place, Photo
 
 
 class PhotoInline(SortableInlineAdminMixin, admin.TabularInline):

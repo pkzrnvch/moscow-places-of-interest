@@ -1,10 +1,9 @@
-from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render
 from places.models import Place, Photo
 from django.urls import reverse
 
 
-def index(request):
+def fetch_all_places(request):
     features = []
     places = Place.objects.all()
     for place in places:
@@ -23,10 +22,8 @@ def index(request):
             }
         )
 
-    places = {
+    context = {'places_geojson': {
         "type": "FeatureCollection",
-        "features": features
-    }
-
-    context = {'places_geojson': places}
+        "features": features,
+    }}
     return render(request, 'index.html', context=context)
